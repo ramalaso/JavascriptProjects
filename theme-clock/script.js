@@ -5,29 +5,8 @@ const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
 const toggle = document.querySelector('.toggle');
 
-const days = [
-	'Sunday',
-	'Monday',
-	'Tuesday',
-	'Wednesday',
-	'Thursday',
-	'Friday',
-	'Saturday',
-];
-const months = [
-	'Jan',
-	'Feb',
-	'Mar',
-	'Apr',
-	'May',
-	'Jun',
-	'Jul',
-	'Aug',
-	'Sep',
-	'Oct',
-	'Nov',
-	'Dec',
-];
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 toggle.addEventListener('click', (e) => {
 	const html = document.querySelector('html');
@@ -50,33 +29,13 @@ function setTime() {
 	const seconds = time.getSeconds();
 	const date = time.getDate();
 
-	hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
-		hoursForClock,
-		0,
-		11,
-		0,
-		360
-	)}deg)`;
+	hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(hoursForClock, 0, 11, 0, 360)}deg)`;
 
-	minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
-		minutes,
-		0,
-		59,
-		0,
-		360
-	)}deg)`;
+	minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(minutes, 0, 59, 0, 360)}deg)`;
 
-	secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
-		seconds,
-		0,
-		59,
-		0,
-		360
-	)}deg)`;
+	secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(seconds, 0, 59, 0, 360)}deg)`;
 
-	timeEl.innerHTML = `${hoursForClock}:${FormatTime(minutes)}:${FormatTime(
-		seconds
-	)}`;
+	timeEl.innerHTML = `${hoursForClock}:${FormatTime(minutes)}:${FormatTime(seconds)}`;
 
 	dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span> `;
 }
